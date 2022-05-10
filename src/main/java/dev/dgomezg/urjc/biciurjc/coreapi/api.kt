@@ -6,3 +6,8 @@ data class RentBikeCommand(val bikeId: String, val userId: String)
 data class ReturnBikeCommand(val bikeId: String, val location: String)
 
 enum class BikeStatus {AVAILABLE, RENTED, BROKEN}
+
+class AllBikesQuery
+class AllUsersQuery
+data class BikeQuery(val bikeId: String)
+data class UserQuery(val userId: String)

@@ -14,7 +14,8 @@
     <name>bici-urjc-es</name>
     <description>bici-urjc-es</description>
     <properties>
-        <java.version>17</java.version>
+        <java.version>11</java.version>
+        <kotlin.version>1.6.21</kotlin.version>
     </properties>
     <dependencies>
         <dependency>
@@ -26,14 +27,13 @@
             <groupId>org.axonframework</groupId>
             <artifactId>axon-spring-boot-starter</artifactId>
             <version>4.5.9</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.axonframework</groupId>
-                    <artifactId>axon-server-connector</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
 
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-stdlib</artifactId>
+            <version>${kotlin.version}</version>
+        </dependency>
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>

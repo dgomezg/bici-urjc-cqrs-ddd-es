@@ -1,28 +1,26 @@
-package dev.dgomezg.urjc.biciurjc.bike;
+package dev.dgomezg.urjc.biciurjc.query.bikes;
 
-import dev.dgomezg.urjc.biciurjc.user.User;
+import dev.dgomezg.urjc.biciurjc.coreapi.BikeStatus;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 
 @Entity
-public class Bike {
-
-    public enum BikeStatus {AVAILABLE, RENTED}
+public class BikeInfo {
 
     @Id
     private String bikeId;
+    private String location;
+    private BikeStatus status;
+    private String rentedByUser;
 
-    private String location = "Unknown";
-    private BikeStatus status = BikeStatus.AVAILABLE;
+    public BikeInfo() {
+    }
 
-    @OneToOne
-    @JoinColumn(name = "rented_by_user_id", nullable = true)
-    private User rentedBy;
-
-    public Bike() {
+    public BikeInfo(String bikeId, String location, BikeStatus status) {
+        this.bikeId = bikeId;
+        this.location = location;
+        this.status = status;
     }
 
     public String getBikeId() {
@@ -49,12 +47,11 @@ public class Bike {
         this.status = status;
     }
 
-    public void setRentedBy(User rentedBy) {
-        this.rentedBy = rentedBy;
+    public String getRentedByUser() {
+        return rentedByUser;
     }
 
-    public User getRentedBy() {
-        return rentedBy;
+    public void setRentedByUser(String rentedByUser) {
+        this.rentedByUser = rentedByUser;
     }
-
 }

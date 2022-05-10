@@ -1,7 +1,5 @@
 package dev.dgomezg.urjc.biciurjc.user;
 
-import dev.dgomezg.urjc.biciurjc.bike.Bike;
-
 import javax.persistence.*;
 
 @Entity

@@ -1,9 +1,11 @@
 package dev.dgomezg.urjc.biciurjc.coreapi
 
-data class RegisterUserCommand(val userId: String, val fullName: String)
-data class RegisterBikeCommand(val bikeId: String, val location: String, val status: BikeStatus)
-data class RentBikeCommand(val bikeId: String, val userId: String)
-data class ReturnBikeCommand(val bikeId: String, val location: String)
+import org.axonframework.modelling.command.TargetAggregateIdentifier
+
+data class RegisterUserCommand(@TargetAggregateIdentifier val userId: String, val fullName: String)
+data class RegisterBikeCommand(@TargetAggregateIdentifier val bikeId: String, val location: String)
+data class RentBikeCommand(@TargetAggregateIdentifier val bikeId: String, val userId: String)
+data class ReturnBikeCommand(@TargetAggregateIdentifier val bikeId: String, val location: String)
 
 enum class BikeStatus {AVAILABLE, RENTED, BROKEN}
 
@@ -12,7 +14,7 @@ class AllUsersQuery
 data class BikeQuery(val bikeId: String)
 data class UserQuery(val userId: String)
 
-data class BikeCreatedEvent(val bikeId: String, val location: String, val status: BikeStatus)
+data class BikeCreatedEvent(val bikeId: String, val location: String)
 data class UserCreatedEvent(val userId: String, val fullName: String)
 data class BikeRentedEvent(val bikeId: String, val userId: String)
 data class BikeReturnedEvent(val bikeId: String, val location:String)

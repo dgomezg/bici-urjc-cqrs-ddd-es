@@ -1,0 +1,56 @@
+PUT http://localhost:8080/bikes/bike-1/rental
+Content-Type: application/json
+
+{
+   "userId" : "dgomezg"
+}
+
+###
+PUT http://localhost:8080/bikes/bike-1/rental
+Content-Type: application/x-www-form-urlencoded
+
+userId=dgomezg
+
+###
+PUT http://localhost:8080/bikes/bike-1/return
+Content-Type: application/x-www-form-urlencoded
+
+location=Madrid
+
+###
+POST http://localhost:8080/users
+Content-Type: application/json
+
+{
+  "userId": "dgomezg",
+  "fullName": "David Gomez G."
+}
+
+###
+POST http://localhost:8080/bikes
+Content-Type: Application/json
+
+{
+   "bikeId": "bike-1",
+   "location": "Mostoles"
+}
+
+###
+
+GET http://localhost:8080/bikes
+
+###
+GET http://localhost:8080/bikes/bike-1
+
+###
+GET http://localhost:8080/users
+
+###
+GET http://localhost:8080/users/dgomezg
+
+###
+
+
+
+
+

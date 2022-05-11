@@ -50,6 +50,10 @@ GET http://localhost:8080/users/dgomezg
 
 ###
 
+POST http://localhost:8080/activity-simulator/users-n-bikes?numUsers=50&numBikes=20
+
+###
+POST http://localhost:8080/activity-simulator/bike-rentals?numOfRentals=2
 
 
 

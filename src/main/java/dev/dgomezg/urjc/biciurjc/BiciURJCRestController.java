@@ -37,7 +37,7 @@ public class BiciURJCRestController {
     }
 
     @GetMapping("/bikes")
-    public CompletableFuture<List<BikeInfo>> getBikes() {
+    public CompletableFuture<List<BikeInfo>> listBikes() {
         return queryGateway.query(new AllBikesQuery(), ResponseTypes.multipleInstancesOf(BikeInfo.class));
     }
 
@@ -81,6 +81,14 @@ public class BiciURJCRestController {
         private String bikeId;
         private String location = "Unknown";
 
+        public BikeRegistration() {
+        }
+
+        public BikeRegistration(String bikeId, String location) {
+            this.bikeId = bikeId;
+            this.location = location;
+        }
+
         public String getBikeId() {
             return bikeId;
         }
@@ -101,6 +109,14 @@ public class BiciURJCRestController {
     public static class UserRegistration {
         private String userId;
         private String fullName;
+
+        public UserRegistration() {
+        }
+
+        public UserRegistration(String userId, String fullName) {
+            this.userId = userId;
+            this.fullName = fullName;
+        }
 
         public String getUserId() {
             return userId;
